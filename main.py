@@ -9,12 +9,9 @@ def main():
 
 
 def EmailSlicer(e):
-    s=dict()
     time=re.search(r"([\w\d_]+)@([\w.]+.[\w.]+)",e,flags=re.IGNORECASE)
     if time:
-        s["username"]=time.group(1)
-        s["domain"]=time.group(2)
-        return s
+        return {"username":time.group(1),"domain":time.group(2)}
     else:
         raise ValueError
 
